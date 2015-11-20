@@ -2,3 +2,5 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+  プロフィール：<%= @user.profile ||= "未設定" %><br>
+  地域：<%= @user.location ||= "未設定" %>  
