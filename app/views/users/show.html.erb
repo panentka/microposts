@@ -9,10 +9,24 @@
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
+　　　<h3><ul class="list-inline">
+　　　　<li>Microposts (<%= @user.microposts.count %>)</li>
+　　　　<li>Followings (<%= @user.following_users.count %>)</li>
+　　　　<li>Followers (<%= @user.follower_users.count %>)</li>
+　　　</ul></h3>
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
+      </ol>
+    <% end %>
+    <% if @user.following_users.any? %>
+      <ol class="following_users">
+        <%= render :partial => "following_users" %>
+      </ol>
+    <% end %>
+    <% if @user.follower_users.any? %>
+      <ol class="follower_users">
+        <%= render :partial => "follower_users" %>
       </ol>
     <% end %>
   </div>
