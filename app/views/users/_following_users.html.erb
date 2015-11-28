@@ -1,5 +1,0 @@
-<h4>フォローの一覧</h4>
-<% @following_users.each do |following_users| %>
-<%= link_to gravatar_for(following_users, size: 50), following_users %>
-<span class="user"><%= link_to following_users.name, following_users %></span>
-<% end %>

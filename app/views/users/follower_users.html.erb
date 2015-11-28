@@ -1,0 +1,12 @@
+<h4>フォロワーの一覧</h4>
+<div class="row">
+  <ul class="microposts">
+  <% @follower_users.each do |follower_users| %>
+  <br>
+    <%= link_to gravatar_for(follower_users, size: 50), follower_users %>
+    <li>
+    <span class="user"><%= link_to follower_users.name, follower_users %></span>
+    </li>
+  <% end %>
+  </ul>
+</div>

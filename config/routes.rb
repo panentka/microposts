@@ -13,4 +13,14 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts
   resources :relationships, only: [:create, :destroy]
+  resources :users do
+    member do
+      get :following_users
+    end
+  end
+  resources :users do
+    member do
+      get :follower_users
+    end
+  end
 end

@@ -10,23 +10,13 @@
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
 　　　<h3><ul class="list-inline">
-　　　　<li>Microposts (<%= @user.microposts.count %>)</li>
-　　　　<li>Followings (<%= @user.following_users.count %>)</li>
-　　　　<li>Followers (<%= @user.follower_users.count %>)</li>
+　　　　<li><%= link_to "Microposts( #{@user.microposts.count})", @micropost %></li>
+　　　　<li><%= link_to "Followings( #{@user.following_users.count})", following_users_user_path %></li>
+　　　　<li><%= link_to "Followers( #{@user.follower_users.count})", follower_users_user_path %></li>
 　　　</ul></h3>
     <% if @user.microposts.any? %>
       <ol class="microposts">
         <%= render @microposts %>
-      </ol>
-    <% end %>
-    <% if @user.following_users.any? %>
-      <ol class="following_users">
-        <%= render :partial => "following_users" %>
-      </ol>
-    <% end %>
-    <% if @user.follower_users.any? %>
-      <ol class="follower_users">
-        <%= render :partial => "follower_users" %>
       </ol>
     <% end %>
   </div>
